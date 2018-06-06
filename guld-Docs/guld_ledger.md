@@ -1,6 +1,6 @@
 
 
-![guldlogo](https://github.com/Alexstang/branding/blob/master/Guld%20Logo.png)
+![guldlogo](https://github.com/Alexstang/guld-Docs/blob/master/Markdownfiles/guld_logo.jpg)
 
 
 # guld ledger
