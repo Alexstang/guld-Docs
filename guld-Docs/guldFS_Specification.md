@@ -1,6 +1,6 @@
 
 
-![guldlogo](https://github.com/Alexstang/branding/blob/master/Guld%20Logo.png)
+![guldlogo](https://github.com/Alexstang/guld-Docs/blob/master/Markdownfiles/guld_logo.jpg)
 
 
 # guld FileSystem (guldFS) Specification
@@ -33,7 +33,7 @@ Local users mount directories using fuse, and make changes like they would edit 
 The local git data directory should be kept in a “clean” state, in the fashion of a git server. Also following git server convention, this data should be managed by a system user named `git`.
 
 
-![Fuseguldfs](https://github.com/Alexstang/branding/blob/master/Fuse_guldfs.jpg)
+![Fuseguldfs](https://github.com/Alexstang/guld-Docs/blob/master/Markdownfiles/Fuse_guldfs.jpg)
 
 
 
@@ -49,7 +49,7 @@ For example, a group of users `family` could be given read-only access to all su
 These remote users could be using plain old git repositories, or could also be running guldFS, allowing them to mount your pictures directories on their local system.
 
 
-![Localgitguldfs](https://github.com/Alexstang/branding/blob/master/Localgitserver_guldfs.jpg)
+![Localgitguldfs](https://github.com/Alexstang/guld-Docs/blob/master/Markdownfiles/Localgitserver_guldfs.jpg)
 
 
 ## Branches and Merging
@@ -58,7 +58,7 @@ Each user will have a named branch for each git repository, so there should neve
 
 Each repository should have a designated owner, who governs the contents. When the owner merges a commit, the rule is for all user branches to also merge. This process should be managed for all users and all repositories by a service running under the `git` user. Since only merges are to be performed by this service, it does not need an identity or signing key, and only needs write access to the clean copy of each repository.
 
-![branchesguldfs](https://github.com/Alexstang/branding/blob/master/Branches%26Merging_guldfs.jpg)
+![branchesguldfs](https://github.com/Alexstang/guld-Docs/blob/master/Markdownfiles/Branches%26Merging_guldfs.jpg)
 
 The owner could be another user on the same local system, or it could be a remote user identified by username and SSH key. All that is required for consensus, and for merging, is that the official owner key(s) have signed the owner branch. Once the threshold of signatures is met, the commit(s) should be merged into all Reader branches.
 
@@ -66,7 +66,7 @@ The owner could be another user on the same local system, or it could be a remot
 
 The guld network is peer to peer and split into two halves: messaging (metadata) and SSH (data). The messaging portion is a pub/sub 0MQ network, where each network node publishes known commit hashes. The SSH portion of the network is for retrieving and pushing the contents of each commit.
 
-![networkguldfs](https://github.com/Alexstang/branding/blob/master/guldnetwork_guldfs.jpg)
+![networkguldfs](https://github.com/Alexstang/guld-Docs/blob/master/Markdownfiles/guldnetwork_guldfs.jpg)
 
 The contents of the 0MQ messages should consist of `$user:$repository:$commit-hash`. Because the contents are not sent, and not recoverable based on the hash, these messages are safe to distribute all across the network in a `gossip` pool. The term gossip is used because the messages are not necessarily observed by the sending node, and neither node may be able to access the full contents that the message refers to. Should an interested and authorized user hear about the message however, he need only open an SSH connection to the user in the message, and request to pull down the commit hash.
 
@@ -88,7 +88,7 @@ This lets other users know the governance for the repository, and it’s address
 
 For additional security, and/or for large file support, it is recommended to use pre and post commit hooks to transform the commit contents. For example, the pre-commit hook might do something like encrypt the files using another user’s PGP key, create a torrent out of the encrypted files, and then commit the torrent to git, ignoring both the plaintext and encrypted files. The reader would have a post-commit hook that would do the reverse, opening the torrent, downloading the encrypted files, then decrypting them to finally access the plaintext file.
 
-![additionalconfigguldfs](https://github.com/Alexstang/branding/blob/master/AdditionalConfiguration_guldfs.jpg)
+![additionalconfigguldfs](https://github.com/Alexstang/guld-Docs/blob/master/Markdownfiles/AdditionalConfiguration_guldfs.jpg)
 
 Because git hooks are arbitrarily programmable, it is not necessary to describe every possible use case. The important thing is that each repository declare pre and post commit hooks in .gap.json, so that all members of that repository follow the same rules.
 
