@@ -1,6 +1,6 @@
-# Guld ICO
+# guld ICO
 
-* Guld will do a small ICO by mid-Feb 2018.
+* guld will do a small ICO by mid-Feb 2018.
 
 * Mizim group will make the offer, using its existing coins.
 
@@ -8,7 +8,7 @@
 
 * 10,000 (1%) guld will be offered per listing exchange, for a maximum of 5 exchanges. (5% of supply max)
 
-* Guld coins need to be exported from guld ledger to an erc20 ethereum contact to be listed.
+* guld coins need to be exported from guld ledger to an erc20 ethereum contact to be listed.
 
 * Re-use XCM burnable contract and create pairing protocol in guld.
 
