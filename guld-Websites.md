@@ -1,5 +1,5 @@
-# [guld.io](guld.io)
+# [guld.io](http://guld.io)
 
-# [guld.email](guld.email)
+# [guld.email](http://guld.email)
 
-# [guld.chat](guld.chat)
+# [guld.chat](http://guld.chat)
